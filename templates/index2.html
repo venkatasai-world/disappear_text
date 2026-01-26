@@ -1,0 +1,50 @@
+{% extends 'index1.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing App</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index2.css') }}">
+</head>
+
+<div class="second">
+    <h2>Write Your Stories</h2>
+
+    <textarea id="story" rows="10" cols="60" placeholder="Start writing..."></textarea>
+    <br><br>
+
+    <p>Time Left: <span id="time">10</span> seconds</p>
+</div>
+
+<script>
+let timeLeft = 10;
+let timer = null;
+
+const textBox = document.getElementById("story");
+const timeDisplay = document.getElementById("time");
+
+function startTimer() {
+    clearInterval(timer);
+    timeLeft = 10;
+    timeDisplay.innerText = timeLeft;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        timeDisplay.innerText = timeLeft;
+
+        // Clear text after 10 seconds
+        if (timeLeft <= 0) {
+            textBox.value = "";
+            alert("Time is up! Text cleared.");
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
+// Start timer when user types
+textBox.addEventListener("keydown", startTimer);
+</script>
+
+{% endblock %}

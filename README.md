@@ -18,7 +18,7 @@ The application allows users to type inside a text box, and a **countdown timer 
 
 ## 🖥️ Application Output Preview
 
-The website displays:
+The website displays that are:
 - A **main heading** titled *Writing Website*
 - A **large text area** where users write their stories
 - A **live countdown timer** showing remaining writing time
